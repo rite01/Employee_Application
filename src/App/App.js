@@ -10,6 +10,8 @@ function App() {
     <>
       <div>
         <Employees />
+        <img src="
+        " alt="" />
       </div>
       <CssBaseline />
     </>
