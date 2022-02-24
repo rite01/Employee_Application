@@ -63,7 +63,11 @@ export default function Employees() {
   const [recordForEdit, setRecordForEdit] = useState(null);
 
   //notification
-  const [notify, setNotify] = useState({ isOpen:false, message:'', type:'' })
+  const [notify, setNotify] = useState({
+    isOpen: false,
+    message: "",
+    type: "",
+  });
 
   const { TblContainer, TblHead, TblPagination, recordsAfterPagingAndSorting } =
     useTable(records, headCells, filterFn);
@@ -102,8 +106,8 @@ export default function Employees() {
     setOpenPopup(true);
   };
 
-  const onDelete = id => {
-    if (window.confirm("Are you sure ??")){
+  const onDelete = (id) => {
+    if (window.confirm("Are you sure ??")) {
       employeeService.deleteEmployee(id);
       setRecords(employeeService.getAllEmployees());
       setNotify({
@@ -111,9 +115,8 @@ export default function Employees() {
         message: "Deleted successfully",
         type: "error",
       });
-  
     }
-  }
+  };
   return (
     <>
       <PageHeader
@@ -150,7 +153,6 @@ export default function Employees() {
           />
         </Toolbar>
 
-        
         <TblContainer>
           <TblHead />
           <TableBody>
@@ -170,10 +172,12 @@ export default function Employees() {
                     <EditOutlinedIcon fontSize="small" />
                   </Controls.ActionButton>
 
-                  <Controls.ActionButton 
-                    color="secondary"  
-                    onClick={() => {onDelete(item.id)}}
-                    >
+                  <Controls.ActionButton
+                    color="secondary"
+                    onClick={() => {
+                      onDelete(item.id);
+                    }}
+                  >
                     <CloseIcon fontSize="small" />
                   </Controls.ActionButton>
                 </TableCell>
